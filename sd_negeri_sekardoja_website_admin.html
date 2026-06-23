@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SD NEGERI SEKARDOJA - Pamulihan Larangan Brebes</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Playfair -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        schoolBlue: '#0c2340',
+                        schoolGold: '#f59e0b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Honeycomb background pattern styling for the header reminiscent of image_29081a.jpg */
+        .honeycomb-bg {
+            background-color: #1e293b;
+            background-image: radial-gradient(circle, transparent 20%, #1e293b 20%, #1e293b 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #1e293b 20%, #1e293b 80%, transparent 80%, transparent) 25px 25px, linear-gradient(to right, #334155 2px, transparent 2px) 0 0, linear-gradient(to bottom, #334155 2px, transparent 2px) 0 0;
+            background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px;
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans text-slate-800 smooth-scroll">
+
+    <script>
+        // Default school database matching original assets updated to SDN Sekardoja
+        const DEFAULT_SCHOOL_DATA = {
+            name: "SD NEGERI SEKARDOJA",
+            address: "Jl. Raya Sekardoja Pamulihan Larangan Brebes",
+            phone: "081367673971",
+            email: "sdnegeri.sekardoja@gmail.com",
+            principal: {
+                name: "H. Sukardo, S.Pd., M.Pd.",
+                speech: "Assalamualaikum Wr. Wb. Puji syukur kami panjatkan kehadirat Allah SWT atas limpahan rahmat dan karunia-Nya sehingga kami dapat menghadirkan media informasi resmi SD NEGERI SEKARDOJA ini. Di era digitalisasi pendidikan, transparansi dan kemudahan akses informasi adalah prioritas utama kami untuk mendukung tumbuh kembang siswa yang cerdas, berkarakter, dan religius.",
+                image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400"
+            },
+            stats: {
+                siswa: 330,
+                rombel: 6,
+                guru: 25,
+                prestasi: 57
+            },
+            news: [
+                {
+                    id: 1,
+                    title: "Tips Belajar Efektif : Agar Nilai Selalu Memuaskan",
+                    category: "Tips & Trik",
+                    date: "31 Oct 2025",
+                    summary: "Menghadapi ujian sekolah dengan strategi belajar yang tepat dapat membantu siswa mencapai nilai terbaik secara maksimal.",
+                    image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&q=80&w=600"
+                },
+                {
+                    id: 2,
+                    title: "Pentingnya Pendidikan Karakter dalam Menyiapkan Generasi Muda",
+                    category: "Opini",
+                    date: "31 Oct 2025",
+                    summary: "Menanamkan karakter disiplin, jujur, serta tanggung jawab merupakan fondasi utama pendidikan di SD Negeri Sekardoja.",
+                    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600"
+                },
+                {
+                    id: 3,
+                    title: "Inovasi Pendidikan: Siswa dan Guru Berkolaborasi dalam Pembelajaran",
+                    category: "Kegiatan",
+                    date: "25 Oct 2025",
+                    summary: "Implementasi Kurikulum Merdeka mendorong integrasi teknologi interaktif di ruang kelas untuk menciptakan suasana belajar yang menyenangkan.",
+                    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=600"
+                }
+            ],
+            quotes: [
+                {
+                    text: "Sekolah bukan hanya tempat untuk belajar, tetapi juga tempat untuk tumbuh, berkembang, dan menemukan jati diri.",
+                    author: "Anonim"
+                },
+                {
+                    text: "Apa yang kamu ketahui, tetapi menerapkannya untuk membuat dunia lebih baik adalah kebijaksanaan sejati.",
+                    author: "Albert Einstein"
+                },
+                {
+                    text: "Tidak ada yang lebih berharga daripada kesempatan untuk belajar dan mengembangkan potensi diri.",
+                    author: "Nelson Mandela"
+                }
+            ],
+            gallery: [
+                {
+                    id: 1,
+                    title: "Upacara Bendera Senin Pagi",
+                    image: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=600",
+                    type: "FOTO"
+                },
+                {
+                    id: 2,
+                    title: "Kegiatan Pramuka di Halaman Sekolah",
+                    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=600",
+                    type: "FOTO"
+                },
+                {
+                    id: 3,
+                    title: "Sudut Perpustakaan dan Literasi Sekolah",
+                    image: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=600",
+                    type: "FOTO"
+                }
+            ],
+            visi: "Mewujudkan generasi yang bertaqwa, berprestasi, kreatif, mandiri dan berwawasan lingkungan.",
+            misi: [
+                "Menyelenggarakan pembelajaran yang aktif, inovatif, kreatif, efektif, dan menyenangkan.",
+                "Mengembangkan kepribadian siswa yang berakhlaq mulia dan peduli lingkungan sosial.",
+                "Menjalin kemitraan yang harmonis antara sekolah, komite, masyarakat, dan pemerintah."
+            ]
+        };
+
+        // Load dynamic state
+        let appData = JSON.parse(localStorage.getItem('sekardoja_web_data')) || DEFAULT_SCHOOL_DATA;
+
+        function saveState() {
+            localStorage.setItem('sekardoja_web_data', JSON.stringify(appData));
+            renderAllSections();
+        }
+    </script>
+
+    <!-- Top banner following image_29081a.jpg with honeycomb background -->
+    <header class="honeycomb-bg text-white relative py-6 px-4 md:px-12 flex flex-col md:flex-row items-center justify-between shadow-lg overflow-hidden">
+        <!-- Overlay decorative light glow -->
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-900/40 to-transparent pointer-events-none"></div>
+        
+        <div class="z-10 flex items-center space-x-4 mb-4 md:mb-0">
+            <!-- Custom Brebes Regional Logo SVG (Stunning and Detailed) -->
+            <div class="w-16 h-16 md:w-20 md:h-20 bg-white/10 backdrop-blur-sm p-2 rounded-full border border-white/20 shadow-inner flex items-center justify-center">
+                <svg viewBox="0 0 100 100" class="w-full h-full text-emerald-400">
+                    <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" fill="#1b5e20" stroke="#ffd700" stroke-width="3"/>
+                    <circle cx="50" cy="50" r="28" fill="#1e88e5" />
+                    <!-- Shield inner detail -->
+                    <path d="M50,30 Q65,40 50,70 Q35,40 50,30" fill="#fff59d" />
+                    <!-- Padi & Kapas stylized inside -->
+                    <circle cx="50" cy="50" r="10" fill="#e53935" />
+                    <text x="50" y="90" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">BREBES</text>
+                </svg>
+            </div>
+            <div>
+                <h1 id="header-school-name" class="text-2xl md:text-4xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-white to-amber-200 drop-shadow-md">
+                    SD NEGERI SEKARDOJA
+                </h1>
+                <p id="header-school-address" class="text-xs md:text-sm text-slate-300 font-medium tracking-wider mt-1 flex items-center gap-1.5">
+                    <i class="fa-solid fa-location-dot text-amber-400"></i> Jl. Raya Sekardoja Pamulihan Larangan Brebes
+                </p>
+            </div>
+        </div>
+
+        <!-- Tut Wuri Handayani Logo on the Right -->
+        <div class="z-10 flex items-center space-x-3 bg-slate-900/30 backdrop-blur-xs py-2 px-4 rounded-xl border border-white/10">
+            <svg class="w-12 h-12 text-[#4da8e8]" viewBox="0 0 100 100" fill="currentColor">
+                <polygon points="50,10 85,35 85,75 50,90 15,75 15,35" fill="#0066cc" stroke="#ffffff" stroke-width="2"/>
+                <polygon points="50,22 75,40 75,70 50,82 25,70 25,40" fill="#ffffff"/>
+                <path d="M50,30 L55,48 L73,48 L58,58 L63,76 L50,65 L37,76 L42,58 L27,48 L45,48 Z" fill="#ffcc00"/>
+                <text x="50" y="97" fill="#ffffff" font-size="7" font-weight="bold" text-anchor="middle">TUT WURI HANDAYANI</text>
+            </svg>
+            <div class="hidden md:block">
+                <div class="text-xs text-slate-400">Kementerian Pendidikan</div>
+                <div class="text-xs font-bold text-slate-200">Republik Indonesia</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu mimicking image_29081a.jpg with dynamic hovering & active dropdowns -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-xs">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-14">
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-1 items-center w-full justify-center">
+                    <a href="#welcome" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors">Tentang Sekolah +</a>
+                    
+                    <!-- Home Menu with dropdown -->
+                    <div class="relative group">
+                        <button class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors flex items-center gap-1">
+                            Home +
+                        </button>
+                        <div class="absolute left-0 mt-0 w-56 bg-white border border-slate-100 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 py-1">
+                            <button onclick="showStructureModal()" class="w-full text-left px-4 py-2.5 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600 border-b border-slate-100">
+                                Struktur Organisasi +
+                            </button>
+                            <button onclick="showFacilitiesModal()" class="w-full text-left px-4 py-2.5 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600">
+                                Sarana dan Prasarana +
+                            </button>
+                        </div>
+                    </div>
+
+                    <a href="#sambutan" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors">Guru +</a>
+
+                    <!-- Profil Dropdown -->
+                    <div class="relative group">
+                        <button class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors flex items-center gap-1">
+                            Profil +
+                        </button>
+                        <div class="absolute left-0 mt-0 w-56 bg-white border border-slate-100 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 py-1">
+                            <a href="#welcome" class="block px-4 py-2.5 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600 border-b border-slate-100">
+                                Tentang Sekolah +
+                            </a>
+                            <div class="relative group/sub">
+                                <button onclick="showVisiMisiModal()" class="w-full text-left px-4 py-2.5 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600 flex justify-between items-center">
+                                    <span>Visi Misi Sekolah +</span>
+                                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                                </button>
+                                <div class="absolute left-full top-0 w-48 bg-white border border-slate-100 rounded-lg shadow-md opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-150 py-1">
+                                    <button onclick="showVisiMisiModal()" class="w-full text-left px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-50 hover:text-blue-600">
+                                        Visi Misi Sekolah
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#stats" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors">SISWA +</a>
+                    <a href="#berita" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors">Kesiswaan +</a>
+                    <a href="#berita" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors">Informasi +</a>
+                    <a href="#berita" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors">Berita</a>
+                    <a href="#berita" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors">Artikel</a>
+                    
+                    <!-- Galeri Dropdown -->
+                    <div class="relative group">
+                        <button class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors flex items-center gap-1">
+                            Galeri +
+                        </button>
+                        <div class="absolute right-0 mt-0 w-40 bg-white border border-slate-100 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 py-1">
+                            <a href="#galeri" class="block px-4 py-2.5 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600 border-b border-slate-100">FOTO +</a>
+                            <a href="#galeri" class="block px-4 py-2.5 text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600">VIDEO +</a>
+                        </div>
+                    </div>
+
+                    <!-- Direct Admin Link -->
+                    <button onclick="openAdminModal()" class="ml-4 px-4 py-1.5 bg-rose-600 text-white rounded-full text-xs font-semibold hover:bg-rose-700 transition-all flex items-center gap-1.5 shadow-md shadow-rose-200">
+                        <i class="fa-solid fa-user-gear"></i> Admin Panel
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center justify-between w-full">
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Navigasi</span>
+                    <button onclick="toggleMobileMenu()" class="text-slate-700 hover:text-blue-600 focus:outline-hidden">
+                        <i id="mobile-menu-icon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Stack -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-50 border-t border-slate-100 px-4 py-2 space-y-1">
+            <a href="#welcome" class="block py-2 text-sm font-medium text-slate-700 hover:text-blue-600">Tentang Sekolah</a>
+            <button onclick="showStructureModal()" class="w-full text-left py-2 text-sm font-medium text-slate-700 hover:text-blue-600">Struktur Organisasi</button>
+            <button onclick="showFacilitiesModal()" class="w-full text-left py-2 text-sm font-medium text-slate-700 hover:text-blue-600">Sarana & Prasarana</button>
+            <a href="#sambutan" class="block py-2 text-sm font-medium text-slate-700 hover:text-blue-600">Sambutan Guru</a>
+            <button onclick="showVisiMisiModal()" class="w-full text-left py-2 text-sm font-medium text-slate-700 hover:text-blue-600">Visi Misi Sekolah</button>
+            <a href="#stats" class="block py-2 text-sm font-medium text-slate-700 hover:text-blue-600">Statistik Siswa</a>
+            <a href="#berita" class="block py-2 text-sm font-medium text-slate-700 hover:text-blue-600">Berita & Kegiatan</a>
+            <a href="#galeri" class="block py-2 text-sm font-medium text-slate-700 hover:text-blue-600">Galeri Foto</a>
+            <button onclick="openAdminModal()" class="w-full mt-2 py-2 text-center bg-rose-600 text-white rounded-lg text-sm font-semibold hover:bg-rose-700">
+                <i class="fa-solid fa-user-gear"></i> Admin Panel
+            </button>
+        </div>
+    </nav>
+
+    <!-- Beautiful Welcome Split Hero reminiscent of image_29081a.jpg and image_29083e.jpg -->
+    <section id="welcome" class="grid grid-cols-1 lg:grid-cols-12 overflow-hidden shadow-xs">
+        <!-- Left Column: Immersive Dark Welcome -->
+        <div class="lg:col-span-5 bg-[#0f172a] text-white p-8 md:p-16 lg:p-24 flex flex-col justify-center relative">
+            <div class="absolute inset-0 bg-gradient-to-tr from-slate-900 via-transparent to-transparent"></div>
+            <div class="relative z-10">
+                <span class="text-amber-400 font-bold tracking-wider text-xs md:text-sm uppercase bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20">
+                    Situs Resmi
+                </span>
+                <h2 class="text-4xl md:text-6xl font-extrabold mt-6 leading-tight tracking-tight">
+                    Selamat <br class="hidden md:inline">Datang
+                </h2>
+                <p class="text-slate-400 mt-4 leading-relaxed text-sm md:text-base">
+                    Pusat layanan informasi digital pendidikan dasar unggulan Desa Sekardoja Pamulihan, Kecamatan Larangan, Kabupaten Brebes.
+                </p>
+                
+                <div class="mt-8 flex flex-wrap gap-4 items-center">
+                    <a href="#sambutan" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg text-sm transition-all shadow-md shadow-blue-900/40">
+                        Read More
+                    </a>
+                    <button onclick="openVideoPlayer()" class="flex items-center space-x-3 group cursor-pointer focus:outline-hidden">
+                        <span class="w-12 h-12 rounded-full bg-white text-slate-900 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-play ml-0.5 text-blue-600"></i>
+                        </span>
+                        <span class="text-xs font-bold tracking-wider text-slate-300 group-hover:text-white transition-colors">
+                            WATCH VIDEO
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Simulated Graphics Banner as shown in image_29081a.jpg / image_29083e.jpg -->
+        <div class="lg:col-span-7 bg-sky-50 relative min-h-[350px] md:min-h-[500px] flex items-center justify-center p-6 md:p-12 overflow-hidden">
+            <!-- Decorative Vector Elements simulating school artwork -->
+            <div class="absolute top-10 right-10 w-24 h-24 bg-amber-200/40 rounded-full blur-xl"></div>
+            <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-sky-200/50 rounded-full blur-2xl"></div>
+            
+            <div class="bg-white/80 backdrop-blur-md rounded-2xl p-6 md:p-10 border border-white/60 shadow-xl max-w-2xl relative z-10 flex flex-col md:flex-row items-center gap-6">
+                <!-- Stacked Student Photos (Stylized Unsplash Placeholders replicating the student group mockup) -->
+                <div class="flex-shrink-0 grid grid-cols-2 gap-2 w-48 h-48">
+                    <img class="w-full h-full object-cover rounded-xl shadow-xs border-2 border-white rotate-[-3deg]" src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=300" alt="Siswa 1" onerror="this.src='https://placehold.co/150x150/0c2340/ffffff?text=Siswa'">
+                    <img class="w-full h-full object-cover rounded-xl shadow-xs border-2 border-white rotate-[4deg]" src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=300" alt="Siswa 2" onerror="this.src='https://placehold.co/150x150/f59e0b/ffffff?text=Siswa'">
+                    <img class="w-full h-full object-cover rounded-xl shadow-xs border-2 border-white rotate-[-2deg]" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=300" alt="Guru" onerror="this.src='https://placehold.co/150x150/0284c7/ffffff?text=Siswa'">
+                    <div class="bg-blue-600 rounded-xl flex flex-col items-center justify-center text-white p-2 text-center rotate-[3deg] shadow-xs">
+                        <i class="fa-solid fa-star text-amber-300 text-lg mb-1 animate-pulse"></i>
+                        <span class="text-[9px] font-bold tracking-wider uppercase">Terakreditasi</span>
+                        <span class="text-sm font-black">A</span>
+                    </div>
+                </div>
+                <!-- Welcome Typography Block -->
+                <div class="text-center md:text-left">
+                    <div class="text-[10px] font-bold tracking-widest text-blue-600 uppercase mb-1">PROFIL SD NEGERI SEKARDOJA</div>
+                    <h3 class="text-xl md:text-3xl font-extrabold text-slate-900 leading-tight">
+                        SELAMAT DATANG DI <br><span class="text-blue-600">WEBSITE</span> SEKOLAH KAMI
+                    </h3>
+                    <p class="text-slate-600 text-xs md:text-sm mt-3 leading-relaxed">
+                        Website ini dirancang untuk mendukung komunikasi dan transparansi antara sekolah, siswa, orang tua, dan masyarakat. Temukan informasi terbaru, program unggulan, dan berbagai kegiatan sekolah dalam satu tempat. Bersama-sama, kita wujudkan generasi yang unggul dan berkarakter.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Modern Dot Indicators to mock carousel slider -->
+            <div class="absolute bottom-6 flex space-x-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-slate-300"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-slate-300"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-slate-300"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4 key features matched to image_2908bb.jpg with responsive icons -->
+    <section class="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white p-8 rounded-2xl border border-slate-100 hover:shadow-xl transition-all hover:-translate-y-1 text-center flex flex-col items-center">
+            <div class="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mb-6 text-blue-600">
+                <i class="fa-solid fa-chalkboard-user text-2xl"></i>
+            </div>
+            <h4 class="text-base font-bold text-slate-900">Guru Berkualitas</h4>
+            <p class="text-slate-500 text-xs mt-3 leading-relaxed">
+                Guru berpengalaman dan berdedikasi tinggi untuk membantu siswa mencapai potensi terbaiknya.
+            </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl border border-slate-100 hover:shadow-xl transition-all hover:-translate-y-1 text-center flex flex-col items-center">
+            <div class="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center mb-6 text-emerald-600">
+                <i class="fa-solid fa-school text-2xl"></i>
+            </div>
+            <h4 class="text-base font-bold text-slate-900">Fasilitas Lengkap</h4>
+            <p class="text-slate-500 text-xs mt-3 leading-relaxed">
+                Dilengkapi ruang kelas nyaman, laboratorium, perpustakaan, dan area olahraga yang luas.
+            </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl border border-slate-100 hover:shadow-xl transition-all hover:-translate-y-1 text-center flex flex-col items-center">
+            <div class="w-16 h-16 rounded-full bg-purple-50 flex items-center justify-center mb-6 text-purple-600">
+                <i class="fa-solid fa-laptop-code text-2xl"></i>
+            </div>
+            <h4 class="text-base font-bold text-slate-900">Pembelajaran Modern</h4>
+            <p class="text-slate-500 text-xs mt-3 leading-relaxed">
+                Mengintegrasikan teknologi untuk menciptakan pembelajaran yang interaktif dan menyenangkan.
+            </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl border border-slate-100 hover:shadow-xl transition-all hover:-translate-y-1 text-center flex flex-col items-center">
+            <div class="w-16 h-16 rounded-full bg-amber-50 flex items-center justify-center mb-6 text-amber-600">
+                <i class="fa-solid fa-puzzle-piece text-2xl"></i>
+            </div>
+            <h4 class="text-base font-bold text-slate-900">Pengembangan Karakter</h4>
+            <p class="text-slate-500 text-xs mt-3 leading-relaxed">
+                Menanamkan nilai disiplin, kejujuran, dan tanggung jawab dalam setiap kegiatan siswa.
+            </p>
+        </div>
+    </section>
+
+    <!-- Replicating bottom half of image_2908bb.jpg (Sambutan Kepala Sekolah) -->
+    <section id="sambutan" class="bg-slate-100 py-16">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Left Side Text Speech -->
+            <div class="lg:col-span-7">
+                <span class="text-xs font-bold text-blue-600 tracking-widest uppercase">
+                    # Welcome To SD NEGERI SEKARDOJA
+                </span>
+                <h3 class="text-3xl md:text-5xl font-extrabold text-slate-900 mt-2 mb-6">
+                    Sambutan Kepala Sekolah
+                </h3>
+                <!-- Dynamic principal message placeholder -->
+                <div id="speech-text" class="text-slate-600 leading-relaxed space-y-4 text-sm md:text-base">
+                    <!-- Loaded dynamically -->
+                </div>
+            </div>
+
+            <!-- Right Side Image with Golden Frame matching image_2908bb.jpg style -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative group">
+                    <!-- Background Accent Block -->
+                    <div class="absolute -inset-2 bg-gradient-to-tr from-amber-500 to-amber-300 rounded-2xl blur-xs opacity-70 group-hover:opacity-100 transition-opacity"></div>
+                    <!-- Frame -->
+                    <div class="relative bg-amber-100 p-4 rounded-xl border-4 border-amber-400 max-w-sm">
+                        <img id="speech-image" class="w-full h-80 object-cover rounded-lg shadow-md grayscale-10 hover:grayscale-0 transition-all duration-300" src="" alt="Kepala Sekolah">
+                        <div class="mt-4 text-center bg-white py-3 px-4 rounded-lg shadow-xs">
+                            <h5 id="speech-name" class="font-bold text-slate-900 text-base">H. Sukardo, S.Pd., M.Pd.</h5>
+                            <p class="text-[11px] text-amber-600 font-semibold uppercase tracking-wider mt-0.5">Kepala Sekolah SDN Sekardoja</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Orange counter bar from image_2908fb.png -->
+    <section id="stats" class="bg-amber-500 text-white py-12 shadow-inner">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+            <div>
+                <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-graduation-cap text-2xl"></i>
+                </div>
+                <div id="stat-siswa" class="text-4xl md:text-5xl font-black">330</div>
+                <div class="text-xs md:text-sm font-semibold text-amber-50 uppercase tracking-widest mt-2">Siswa</div>
+            </div>
+
+            <div>
+                <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-building-user text-2xl"></i>
+                </div>
+                <div id="stat-rombel" class="text-4xl md:text-5xl font-black">6</div>
+                <div class="text-xs md:text-sm font-semibold text-amber-50 uppercase tracking-widest mt-2">Rombel</div>
+            </div>
+
+            <div>
+                <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-users-gear text-2xl"></i>
+                </div>
+                <div id="stat-guru" class="text-4xl md:text-5xl font-black">25</div>
+                <div class="text-xs md:text-sm font-semibold text-amber-50 uppercase tracking-widest mt-2">Guru & Staff</div>
+            </div>
+
+            <div>
+                <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-award text-2xl"></i>
+                </div>
+                <div id="stat-prestasi" class="text-4xl md:text-5xl font-black">57</div>
+                <div class="text-xs md:text-sm font-semibold text-amber-50 uppercase tracking-widest mt-2">Prestasi</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beautiful card list matching bottom half of image_2908fb.png -->
+    <section id="berita" class="max-w-7xl mx-auto px-4 py-16">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4 border-b border-slate-100 pb-6">
+            <div>
+                <span class="text-xs font-bold text-blue-600 tracking-widest uppercase"># Berita</span>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-1">Berita Terbaru</h3>
+            </div>
+            <button onclick="scrollToNews()" class="px-5 py-2.5 bg-blue-900 hover:bg-slate-900 text-white rounded-lg text-xs font-semibold transition-all shadow-md flex items-center gap-2">
+                Semua Berita <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <div id="news-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- News Cards dynamically rendered -->
+        </div>
+    </section>
+
+    <!-- Dark navy/blue slide block matching image_290bdb.png -->
+    <section class="bg-slate-900 text-white py-16 relative overflow-hidden">
+        <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500"></div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <h4 class="text-2xl md:text-3xl font-extrabold text-slate-300 mb-8">Quotes</h4>
+            
+            <div class="relative bg-[#0f172a] border border-slate-800 rounded-3xl p-8 md:p-12 shadow-2xl">
+                <!-- Large Quote Circle icon from image_290bdb.png -->
+                <div class="w-16 h-16 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center absolute -top-8 left-1/2 -translate-x-1/2">
+                    <i class="fa-solid fa-quote-left text-2xl text-cyan-400 animate-pulse"></i>
+                </div>
+                
+                <!-- Sliding Quote Content -->
+                <div id="quotes-container" class="min-h-[140px] flex flex-col justify-center transition-all duration-300">
+                    <!-- Dynamic Quotes loaded here -->
+                </div>
+
+                <!-- Navigation Chevrons -->
+                <div class="flex justify-center space-x-4 mt-8">
+                    <button onclick="prevQuote()" class="w-10 h-10 rounded-full bg-slate-800/80 hover:bg-slate-700 text-white flex items-center justify-center transition-all focus:outline-hidden">
+                        <i class="fa-solid fa-chevron-left text-xs"></i>
+                    </button>
+                    <button onclick="nextQuote()" class="w-10 h-10 rounded-full bg-slate-800/80 hover:bg-slate-700 text-white flex items-center justify-center transition-all focus:outline-hidden">
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grid gallery matching image_290c02.jpg with clean lightbox feature -->
+    <section id="galeri" class="max-w-7xl mx-auto px-4 py-16">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4 border-b border-slate-100 pb-6">
+            <div>
+                <span class="text-xs font-bold text-blue-600 tracking-widest uppercase"># Dokumentasi</span>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-1">Galeri Sekolah</h3>
+            </div>
+            <button onclick="showAllPhotos()" class="px-5 py-2.5 bg-blue-900 hover:bg-slate-900 text-white rounded-lg text-xs font-semibold transition-all shadow-md flex items-center gap-2">
+                Semua Galeri <i class="fa-solid fa-images"></i>
+            </button>
+        </div>
+
+        <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Dynamic Gallery Cards -->
+        </div>
+    </section>
+
+    <!-- Partners at the bottom of image_290c02.jpg -->
+    <section class="bg-slate-100 py-10 border-t border-b border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-80">
+            <!-- Logo Merdeka Belajar -->
+            <div class="h-10 flex items-center space-x-2 grayscale hover:grayscale-0 transition-all">
+                <i class="fa-solid fa-graduation-cap text-slate-700 text-xl"></i>
+                <span class="font-extrabold text-slate-700 tracking-tight text-xs uppercase">MERDEKA BELAJAR</span>
+            </div>
+            <!-- Brebes Local Emblem -->
+            <div class="h-10 flex items-center space-x-2 grayscale hover:grayscale-0 transition-all">
+                <i class="fa-solid fa-shield-halved text-emerald-600 text-xl"></i>
+                <span class="font-extrabold text-slate-700 tracking-tight text-xs uppercase">PEMKAB BREBES</span>
+            </div>
+            <!-- Dapodik -->
+            <div class="h-10 flex items-center space-x-2 grayscale hover:grayscale-0 transition-all">
+                <i class="fa-solid fa-database text-blue-600 text-xl"></i>
+                <span class="font-extrabold text-slate-700 tracking-tight text-xs uppercase">DAPODIK</span>
+            </div>
+            <!-- Kurikulum Merdeka -->
+            <div class="h-10 flex items-center space-x-2 grayscale hover:grayscale-0 transition-all">
+                <i class="fa-solid fa-seedling text-teal-600 text-xl"></i>
+                <span class="font-extrabold text-slate-700 tracking-tight text-xs uppercase">KURIKULUM MERDEKA</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Matches image_290c3d.png with logo, Kontak Kami, Quick Links, News Update, Copyright -->
+    <footer class="bg-slate-950 text-white pt-16 pb-6 relative">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Info column with logo -->
+            <div class="lg:col-span-4 space-y-6">
+                <div class="flex items-center space-x-3">
+                    <svg viewBox="0 0 100 100" class="w-14 h-14 text-emerald-400">
+                        <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" fill="#1b5e20" stroke="#ffd700" stroke-width="3"/>
+                        <circle cx="50" cy="50" r="28" fill="#1e88e5"/>
+                        <path d="M50,30 Q65,40 50,70 Q35,40 50,30" fill="#fff59d"/>
+                        <text x="50" y="90" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">BREBES</text>
+                    </svg>
+                    <div>
+                        <h4 id="footer-school-name" class="font-extrabold text-lg text-slate-100 tracking-wide uppercase">SD NEGERI SEKARDOJA</h4>
+                        <p class="text-xs text-slate-400 tracking-wider">Brebes, Jawa Tengah</p>
+                    </div>
+                </div>
+                <p class="text-slate-400 text-xs leading-relaxed">
+                    Menyelenggarakan pendidikan dasar tingkat pertama yang unggul secara karakter, kompeten secara ilmu pengetahuan, dan berwawasan lingkungan luas di Kecamatan Larangan.
+                </p>
+                <div class="flex space-x-3">
+                    <a href="#" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-blue-600 flex items-center justify-center transition-colors text-xs text-white">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-pink-600 flex items-center justify-center transition-colors text-xs text-white">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-red-600 flex items-center justify-center transition-colors text-xs text-white">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-emerald-600 flex items-center justify-center transition-colors text-xs text-white">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Kontak Kami from image_290c3d.png -->
+            <div class="lg:col-span-3 space-y-4">
+                <h5 class="text-sm font-bold uppercase tracking-widest text-slate-300 pb-2 border-b border-slate-900">
+                    Kontak Kami
+                </h5>
+                <ul class="space-y-3.5 text-xs text-slate-400">
+                    <li class="flex items-start space-x-3">
+                        <i class="fa-solid fa-location-dot text-amber-500 mt-0.5"></i>
+                        <span id="footer-school-address">Jl. Raya Sekardoja Pamulihan Larangan Brebes</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <i class="fa-solid fa-phone text-amber-500"></i>
+                        <span id="footer-school-phone">081367673971</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <i class="fa-solid fa-envelope text-amber-500"></i>
+                        <span id="footer-school-email">sdnegeri.sekardoja@gmail.com</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="lg:col-span-2 space-y-4">
+                <h5 class="text-sm font-bold uppercase tracking-widest text-slate-300 pb-2 border-b border-slate-900">
+                    Quick Links
+                </h5>
+                <ul class="space-y-2.5 text-xs text-slate-400">
+                    <li><a href="#" class="hover:text-amber-400 flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px]"></i> Kurikulum Merdeka</a></li>
+                    <li><a href="#" class="hover:text-amber-400 flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px]"></i> Merdeka Belajar</a></li>
+                    <li><a href="#" class="hover:text-amber-400 flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px]"></i> Merdeka Mengajar</a></li>
+                    <li><a href="#" class="hover:text-amber-400 flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px]"></i> Disdikbud Brebes</a></li>
+                    <li><a href="#" class="hover:text-amber-400 flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px]"></i> Dapodik</a></li>
+                    <li><a href="#" class="hover:text-amber-400 flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px]"></i> Kemendikbud</a></li>
+                </ul>
+            </div>
+
+            <!-- News Update -->
+            <div class="lg:col-span-3 space-y-4">
+                <h5 class="text-sm font-bold uppercase tracking-widest text-slate-300 pb-2 border-b border-slate-900">
+                    News Update
+                </h5>
+                <div id="footer-news" class="space-y-3.5">
+                    <!-- Loaded dynamically from current active state -->
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Copyright Block matching image_290c3d.png -->
+        <div class="max-w-7xl mx-auto px-4 mt-12 pt-6 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+            <div>
+                © Copyright -2026 <strong class="text-slate-400 font-semibold uppercase">SD NEGERI SEKARDOJA</strong>, All Right Reserved.
+            </div>
+            <div class="flex items-center space-x-1">
+                <span>Designed By</span>
+                <a href="#" class="text-amber-400 font-semibold hover:underline">MySCH.id</a>
+            </div>
+        </div>
+
+        <!-- Floating Back to Top Button -->
+        <a href="#welcome" class="fixed bottom-6 right-6 w-11 h-11 rounded-full bg-blue-900 hover:bg-amber-500 text-white flex items-center justify-center transition-all shadow-lg z-40 group focus:outline-hidden">
+            <i class="fa-solid fa-arrow-up group-hover:-translate-y-1 transition-transform"></i>
+        </a>
+    </footer>
+
+    <!-- 1. Visi Misi Modal -->
+    <div id="visi-misi-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-100 transform transition-all scale-95 duration-200">
+            <div class="bg-blue-900 p-6 text-white flex justify-between items-center">
+                <h3 class="font-bold text-lg flex items-center gap-2"><i class="fa-solid fa-lightbulb text-amber-300"></i> Visi & Misi Sekolah</h3>
+                <button onclick="closeVisiMisiModal()" class="text-white/80 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="p-6 space-y-6">
+                <div>
+                    <h4 class="text-xs font-bold uppercase text-amber-600 tracking-wider mb-2">Visi</h4>
+                    <p id="modal-visi" class="text-slate-800 font-medium italic text-sm md:text-base leading-relaxed bg-amber-50/50 p-4 rounded-xl border border-amber-100">
+                        <!-- Loaded dynamically -->
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold uppercase text-blue-600 tracking-wider mb-2">Misi</h4>
+                    <ul id="modal-misi" class="space-y-2.5 text-xs md:text-sm text-slate-700 list-disc pl-5 leading-relaxed">
+                        <!-- Loaded dynamically -->
+                    </ul>
+                </div>
+            </div>
+            <div class="bg-slate-50 px-6 py-4 flex justify-end border-t border-slate-100">
+                <button onclick="closeVisiMisiModal()" class="px-4 py-2 bg-slate-800 hover:bg-slate-950 text-white rounded-lg text-xs font-semibold">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Struktur Organisasi Modal -->
+    <div id="structure-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl border border-slate-100">
+            <div class="bg-blue-900 p-6 text-white flex justify-between items-center">
+                <h3 class="font-bold text-lg flex items-center gap-2"><i class="fa-solid fa-sitemap text-amber-300"></i> Struktur Organisasi</h3>
+                <button onclick="closeStructureModal()" class="text-white/80 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="p-6 overflow-y-auto max-h-[70vh] space-y-6">
+                <div class="flex flex-col items-center">
+                    <div class="bg-amber-500 text-white text-xs font-bold uppercase tracking-wider py-2.5 px-5 rounded-lg text-center shadow-xs">
+                        Kepala Sekolah<br>
+                        <span id="org-principal" class="text-slate-900 font-extrabold text-sm capitalize block mt-1">H. Sukardo, S.Pd., M.Pd.</span>
+                    </div>
+                    <div class="w-0.5 h-6 bg-slate-300"></div>
+                    <div class="bg-blue-950 text-white text-xs font-bold uppercase tracking-wider py-2 px-4 rounded-lg text-center shadow-xs">
+                        Komite Sekolah<br>
+                        <span class="text-amber-200 font-extrabold text-xs block mt-0.5">H. Ahmad Dahlan</span>
+                    </div>
+                    <div class="w-0.5 h-6 bg-slate-300"></div>
+                    <div class="grid grid-cols-2 gap-8 w-full">
+                        <div class="border border-dashed border-slate-300 rounded-xl p-4 text-center">
+                            <span class="text-[10px] font-bold text-slate-400 block mb-2 uppercase">Bidang Kurikulum</span>
+                            <span class="font-extrabold text-slate-800 text-xs">Kartini, S.Pd.</span>
+                        </div>
+                        <div class="border border-dashed border-slate-300 rounded-xl p-4 text-center">
+                            <span class="text-[10px] font-bold text-slate-400 block mb-2 uppercase">Kesiswaan & Humas</span>
+                            <span class="font-extrabold text-slate-800 text-xs">Mulyadi, S.Pd.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-slate-50 px-6 py-4 flex justify-end border-t border-slate-100">
+                <button onclick="closeStructureModal()" class="px-4 py-2 bg-slate-800 hover:bg-slate-950 text-white rounded-lg text-xs font-semibold">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Sarana dan Prasarana Modal -->
+    <div id="facilities-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-xl w-full overflow-hidden shadow-2xl border border-slate-100">
+            <div class="bg-blue-900 p-6 text-white flex justify-between items-center">
+                <h3 class="font-bold text-lg flex items-center gap-2"><i class="fa-solid fa-city text-amber-300"></i> Sarana dan Prasarana</h3>
+                <button onclick="closeFacilitiesModal()" class="text-white/80 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="p-6 space-y-4">
+                <p class="text-slate-600 text-xs md:text-sm">Berikut adalah fasilitas unggulan yang menunjang kegiatan pembelajaran siswa:</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-slate-50 p-3.5 rounded-xl flex items-center gap-3">
+                        <i class="fa-solid fa-door-open text-blue-600 text-lg"></i>
+                        <div>
+                            <span class="text-xs font-bold text-slate-900 block">6 Ruang Kelas</span>
+                            <span class="text-[10px] text-slate-400">Full AC & Proyektor</span>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 p-3.5 rounded-xl flex items-center gap-3">
+                        <i class="fa-solid fa-flask text-emerald-600 text-lg"></i>
+                        <div>
+                            <span class="text-xs font-bold text-slate-900 block">Lab Komputer</span>
+                            <span class="text-[10px] text-slate-400">20 Unit Komputer</span>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 p-3.5 rounded-xl flex items-center gap-3">
+                        <i class="fa-solid fa-book-open text-purple-600 text-lg"></i>
+                        <div>
+                            <span class="text-xs font-bold text-slate-900 block">Perpustakaan</span>
+                            <span class="text-[10px] text-slate-400">>1500 Koleksi Buku</span>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 p-3.5 rounded-xl flex items-center gap-3">
+                        <i class="fa-solid fa-basketball text-amber-600 text-lg"></i>
+                        <div>
+                            <span class="text-xs font-bold text-slate-900 block">Lapangan Luas</span>
+                            <span class="text-[10px] text-slate-400">Futsal & Basket</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-slate-50 px-6 py-4 flex justify-end border-t border-slate-100">
+                <button onclick="closeFacilitiesModal()" class="px-4 py-2 bg-slate-800 hover:bg-slate-950 text-white rounded-lg text-xs font-semibold">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Watch Video Modal -->
+    <div id="video-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-slate-800">
+            <div class="p-6 text-white flex justify-between items-center border-b border-slate-800">
+                <h3 class="font-bold text-base flex items-center gap-2"><i class="fa-solid fa-video text-amber-400"></i> Video Tur SDN Sekardoja</h3>
+                <button onclick="closeVideoPlayer()" class="text-white/60 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <!-- Simulated elegant video tour container -->
+            <div class="aspect-video bg-black flex flex-col items-center justify-center p-8 text-center relative">
+                <!-- Sound waves simulation -->
+                <div class="flex items-center space-x-1.5 mb-6">
+                    <span class="w-1.5 h-12 bg-amber-500 rounded-full animate-bounce" style="animation-delay: 0.1s"></span>
+                    <span class="w-1.5 h-8 bg-amber-500 rounded-full animate-bounce" style="animation-delay: 0.3s"></span>
+                    <span class="w-1.5 h-16 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0.2s"></span>
+                    <span class="w-1.5 h-10 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0.4s"></span>
+                    <span class="w-1.5 h-6 bg-amber-500 rounded-full animate-bounce" style="animation-delay: 0.5s"></span>
+                </div>
+                <h4 class="text-white font-extrabold text-lg md:text-xl px-6 leading-relaxed">Profil Pengenalan Pembelajaran Kreatif</h4>
+                <p class="text-xs text-slate-400 mt-2">Menyiapkan Generasi Emas Brebes Unggul & Mandiri</p>
+                <div class="mt-8 flex justify-center gap-4">
+                    <button class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg flex items-center gap-2">
+                        <i class="fa-solid fa-volume-high"></i> Play Sound Tour
+                    </button>
+                    <button onclick="closeVideoPlayer()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-lg">
+                        Tutup
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Accessible instantly for user convenience without password wall initially -->
+    
+    <!-- SYSTEM LOGIN ADMIN MODAL -->
+    <div id="admin-login-modal" class="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-sm w-full overflow-hidden shadow-2xl border border-slate-100 transform transition-all scale-95 duration-200">
+            <div class="bg-slate-950 p-6 text-white text-center">
+                <i class="fa-solid fa-lock text-3xl text-amber-500 mb-2"></i>
+                <h3 class="font-bold text-lg">Login Portal Admin</h3>
+                <p class="text-xs text-slate-400">Silakan masuk untuk mengelola website</p>
+            </div>
+            <div class="p-6 space-y-4">
+                <div id="login-error-msg" class="hidden text-xs text-red-600 bg-red-50 border border-red-100 p-3 rounded-lg text-center font-semibold">
+                    Username atau password salah!
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 uppercase mb-1.5">Username</label>
+                    <input type="text" id="login-username" class="w-full text-xs p-3 border border-slate-200 rounded-lg focus:ring-1 focus:ring-blue-600 outline-hidden" placeholder="Username (Default: admin)">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 uppercase mb-1.5">Password</label>
+                    <div class="relative">
+                        <input type="password" id="login-password" class="w-full text-xs p-3 pr-10 border border-slate-200 rounded-lg focus:ring-1 focus:ring-blue-600 outline-hidden" placeholder="Password (Default: sekardoja123)">
+                        <button type="button" onclick="togglePasswordVisibility()" class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600">
+                            <i id="password-toggle-icon" class="fa-solid fa-eye text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-slate-50 px-6 py-4 flex justify-between gap-3 border-t border-slate-100">
+                <button onclick="closeLoginModal()" class="px-4 py-2 border border-slate-200 text-slate-600 rounded-lg text-xs font-semibold hover:bg-slate-100">Batal</button>
+                <button onclick="handleAdminLogin()" class="px-4 py-2 bg-blue-900 hover:bg-blue-950 text-white rounded-lg text-xs font-semibold flex-1">Masuk</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN ADMIN PANEL MODAL -->
+    <div id="admin-modal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-4xl w-full h-[90vh] overflow-hidden shadow-2xl flex flex-col border border-slate-100">
+            <!-- Admin Title -->
+            <div class="bg-slate-900 p-6 text-white flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <span class="w-10 h-10 rounded-xl bg-amber-500 text-slate-950 flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </span>
+                    <div>
+                        <h3 class="font-extrabold text-base md:text-lg">Panel Admin Utama</h3>
+                        <p class="text-[10px] text-slate-400">Pengelolaan Data Portal SD NEGERI SEKARDOJA</p>
+                    </div>
+                </div>
+                <button onclick="closeAdminModal()" class="text-white/60 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+
+            <!-- Content Area split into Nav & Form Content -->
+            <div class="flex-1 flex flex-col md:flex-row overflow-hidden">
+                <!-- Admin Tabs Menu -->
+                <div class="md:w-64 bg-slate-50 p-4 border-r border-slate-100 flex flex-row md:flex-col gap-1 overflow-x-auto md:overflow-y-auto">
+                    <button onclick="switchAdminTab('general')" id="tab-general" class="admin-tab-btn flex items-center space-x-3 w-full text-left px-3.5 py-3 rounded-xl text-xs font-bold transition-all text-blue-600 bg-blue-50/70 whitespace-nowrap md:whitespace-normal">
+                        <i class="fa-solid fa-hospital text-sm"></i>
+                        <span>Profil & Informasi</span>
+                    </button>
+                    <button onclick="switchAdminTab('stats')" id="tab-stats" class="admin-tab-btn flex items-center space-x-3 w-full text-left px-3.5 py-3 rounded-xl text-xs font-bold transition-all text-slate-500 hover:bg-slate-100 whitespace-nowrap md:whitespace-normal">
+                        <i class="fa-solid fa-chart-line text-sm"></i>
+                        <span>Statistik Sekolah</span>
+                    </button>
+                    <button onclick="switchAdminTab('news')" id="tab-news" class="admin-tab-btn flex items-center space-x-3 w-full text-left px-3.5 py-3 rounded-xl text-xs font-bold transition-all text-slate-500 hover:bg-slate-100 whitespace-nowrap md:whitespace-normal">
+                        <i class="fa-solid fa-newspaper text-sm"></i>
+                        <span>Berita & Artikel</span>
+                    </button>
+                    <button onclick="switchAdminTab('gallery')" id="tab-gallery" class="admin-tab-btn flex items-center space-x-3 w-full text-left px-3.5 py-3 rounded-xl text-xs font-bold transition-all text-slate-500 hover:bg-slate-100 whitespace-nowrap md:whitespace-normal">
+                        <i class="fa-solid fa-images text-sm"></i>
+                        <span>Galeri Foto</span>
+                    </button>
+                    <button onclick="switchAdminTab('quotes')" id="tab-quotes" class="admin-tab-btn flex items-center space-x-3 w-full text-left px-3.5 py-3 rounded-xl text-xs font-bold transition-all text-slate-500 hover:bg-slate-100 whitespace-nowrap md:whitespace-normal">
+                        <i class="fa-solid fa-quote-left text-sm"></i>
+                        <span>Quotes</span>
+                    </button>
+                </div>
+
+                <!-- Admin Dynamic Form Area -->
+                <div class="flex-1 p-6 overflow-y-auto bg-white">
+                    
+                    <!-- TAB: GENERAL/PROFIL -->
+                    <div id="admin-panel-general" class="admin-panel-content space-y-6">
+                        <div class="border-b border-slate-100 pb-3">
+                            <h4 class="font-bold text-slate-800 text-sm">Profil Utama Sekolah</h4>
+                            <p class="text-[11px] text-slate-400">Atur nama, alamat, nomor telepon, dan sambutan kepala sekolah.</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase mb-1.5">Nama Sekolah</label>
+                                <input type="text" id="input-school-name" class="w-full text-xs p-3 border border-slate-200 rounded-lg focus:ring-1 focus:ring-blue-600 outline-hidden">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase mb-1.5">Alamat Sekolah</label>
+                                <input type="text" id="input-school-address" class="w-full text-xs p-3 border border-slate-200 rounded-lg focus:ring-1 focus:ring-blue-600 outline-hidden">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase mb-1.5">Nomor Telepon</label>
+                                <input type="text" id="input-school-phone" class="w-full text-xs p-3 border border-slate-200 rounded-lg focus:ring-1 focus:ring-blue-600 outline-hidden">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase mb-1.5">Email Sekolah</label>
+                                <input type="email" id="input-school-email" class="w-full text-xs p-3 border border-slate-200 rounded-lg focus:ring-1 focus:ring-blue-600 outline-hidden">
+                            </div>
+                        </div>
+
+                        <div class="border-t border-slate-100 pt-6 space-y-4">
+                            <h5 class="font-bold text-slate-800 text-xs uppercase tracking-wider">Sambutan Kepala Sekolah</h5>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 uppercase mb-1.5">Nama Kepala Sekolah</label>
+                                    <input type="text" id="input-principal-name" class="w-full text-xs p-3 border border-slate-200 rounded-lg focus:ring-1 focus:ring-blue-600 outline-hidden">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 uppercase mb-1.5">URL Foto Kepala Sekolah</label>
+                                    <input type="text" id="input-principal-image" class="w-full text-xs p-3 border border-slate-200 rounded-lg focus:ring-1 focus:ring-blue-600 outline-hidden">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase mb-1.5">Teks Sambutan</label>
+                                <textarea id="input-principal-speech" rows="4" class="w-full text-xs p-3 border border-slate-200 rounded-lg focus:ring-1 focus:ring-blue-600 outline-hidden"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-slate-100 pt-6 space-y-4">
+                            <h5 class="font-bold text-slate-800 text-xs uppercase tracking-wider">Visi & Misi</h5>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase mb-1.5">Visi Sekolah</label>
+                                <input type="text" id="input-school-visi" class="w-full text-xs p-3 border border-slate-200 rounded-lg focus:ring-1 focus:ring-blue-600 outline-hidden">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB: STATISTIK -->
+                    <div id="admin-panel-stats" class="admin-panel-content space-y-6 hidden">
+                        <div class="border-b border-slate-100 pb-3">
+                            <h4 class="font-bold text-slate-800 text-sm">Statistik / Counter Website</h4>
+                            <p class="text-[11px] text-slate-400">Atur angka statistik yang terpasang di banner tengah.</p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase mb-1.5">Jumlah Siswa</label>
+                                <input type="number" id="input-stat-siswa" class="w-full text-xs p-3 border border-slate-200 rounded-lg focus:ring-1 focus:ring-blue-600 outline-hidden">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase mb-1.5">Jumlah Rombel</label>
+                                <input type="number" id="input-stat-rombel" class="w-full text-xs p-3 border border-slate-200 rounded-lg focus:ring-1 focus:ring-blue-600 outline-hidden">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase mb-1.5">Jumlah Guru & Staff</label>
+                                <input type="number" id="input-stat-guru" class="w-full text-xs p-3 border border-slate-200 rounded-lg focus:ring-1 focus:ring-blue-600 outline-hidden">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase mb-1.5">Jumlah Prestasi</label>
+                                <input type="number" id="input-stat-prestasi" class="w-full text-xs p-3 border border-slate-200 rounded-lg focus:ring-1 focus:ring-blue-600 outline-hidden">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB: BERITA & ARTIKEL -->
+                    <div id="admin-panel-news" class="admin-panel-content space-y-6 hidden">
+                        <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">Berita & Artikel</h4>
+                                <p class="text-[11px] text-slate-400">Mengelola postingan kegiatan sekolah.</p>
+                            </div>
+                            <button onclick="createNewPost()" class="px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-bold hover:bg-blue-700 flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-solid fa-plus"></i> Buat Berita
+                            </button>
+                        </div>
+                        
+                        <!-- List of current news items for quick editing -->
+                        <div id="admin-news-list" class="space-y-3">
+                            <!-- Populated with JS -->
+                        </div>
+                    </div>
+
+                    <!-- TAB: GALERI -->
+                    <div id="admin-panel-gallery" class="admin-panel-content space-y-6 hidden">
+                        <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">Galeri Sekolah</h4>
+                                <p class="text-[11px] text-slate-400">Atur dokumentasi kegiatan belajar-mengajar.</p>
+                            </div>
+                            <button onclick="addNewGalleryItem()" class="px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-bold hover:bg-blue-700 flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-solid fa-plus"></i> Tambah Foto
+                            </button>
+                        </div>
+
+                        <div id="admin-gallery-list" class="grid grid-cols-2 gap-4">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- TAB: QUOTES -->
+                    <div id="admin-panel-quotes" class="admin-panel-content space-y-6 hidden">
+                        <div class="border-b border-slate-100 pb-3">
+                            <h4 class="font-bold text-slate-800 text-sm">Quotes Motivasi</h4>
+                            <p class="text-[11px] text-slate-400">Mengelola tulisan motivasi yang tampil di slider quotes.</p>
+                        </div>
+
+                        <div id="admin-quotes-list" class="space-y-4">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Save Changes Footer inside Admin Modal -->
+            <div class="bg-slate-50 p-4 border-t border-slate-100 flex justify-between items-center">
+                <div class="flex space-x-2">
+                    <button onclick="restoreDefaults()" class="px-3.5 py-2 text-rose-600 hover:text-rose-700 hover:bg-rose-50 rounded-xl text-xs font-bold transition-all">
+                        <i class="fa-solid fa-arrow-rotate-left"></i> Reset Default
+                    </button>
+                    <button onclick="handleAdminLogout()" class="px-3.5 py-2 text-slate-600 hover:text-slate-800 hover:bg-slate-200 rounded-xl text-xs font-bold transition-all">
+                        <i class="fa-solid fa-right-from-bracket"></i> Keluar (Logout)
+                    </button>
+                </div>
+                <div class="flex space-x-2">
+                    <button onclick="closeAdminModal()" class="px-4 py-2 border border-slate-200 text-slate-600 rounded-xl text-xs font-bold hover:bg-slate-100">Batal</button>
+                    <button onclick="saveAdminData()" class="px-5 py-2 bg-emerald-600 text-white font-bold rounded-xl text-xs hover:bg-emerald-700 flex items-center gap-2 shadow-md shadow-emerald-100">
+                        <i class="fa-solid fa-circle-check"></i> Simpan Perubahan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Feedback Toast Alert -->
+    <div id="feedback-toast" class="fixed bottom-6 left-6 bg-slate-900 text-white py-3 px-5 rounded-2xl shadow-2xl border border-slate-800 z-50 transform translate-y-24 transition-transform duration-300 flex items-center gap-3">
+        <span class="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs"><i class="fa-solid fa-check"></i></span>
+        <span id="feedback-text" class="text-xs font-semibold">Perubahan berhasil disimpan!</span>
+    </div>
+
+    <script>
+        // Active Quotes Carousel index
+        let currentQuoteIndex = 0;
+        let isAdminLoggedIn = sessionStorage.getItem('isAdminLoggedIn') === 'true';
+
+        // Toggle Mobile Menu representation
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.className = 'fa-solid fa-xmark text-xl';
+            } else {
+                menu.classList.add('hidden');
+                icon.className = 'fa-solid fa-bars text-xl';
+            }
+        }
+
+        // Quote slider actions
+        function renderQuotes() {
+            const container = document.getElementById('quotes-container');
+            if (appData.quotes.length === 0) {
+                container.innerHTML = `<p class="text-slate-400 text-sm">Tidak ada quote.</p>`;
+                return;
+            }
+            if (currentQuoteIndex >= appData.quotes.length) {
+                currentQuoteIndex = 0;
+            }
+            const activeQuote = appData.quotes[currentQuoteIndex];
+            container.innerHTML = `
+                <p class="text-base md:text-xl font-medium italic leading-relaxed text-slate-100 text-center">
+                    "${activeQuote.text}"
+                </p>
+                <div class="mt-4 text-xs font-bold uppercase tracking-widest text-amber-400 text-center">
+                    - ${activeQuote.author}
+                </div>
+            `;
+        }
+
+        function prevQuote() {
+            currentQuoteIndex = (currentQuoteIndex - 1 + appData.quotes.length) % appData.quotes.length;
+            renderQuotes();
+        }
+
+        function nextQuote() {
+            currentQuoteIndex = (currentQuoteIndex + 1) % appData.quotes.length;
+            renderQuotes();
+        }
+
+        // Render Front-End dynamically based on state
+        function renderAllSections() {
+            // Update Text Nodes
+            document.getElementById('header-school-name').innerText = appData.name;
+            document.getElementById('footer-school-name').innerText = appData.name;
+            document.getElementById('header-school-address').innerHTML = `<i class="fa-solid fa-location-dot text-amber-400"></i> ${appData.address}`;
+            document.getElementById('footer-school-address').innerText = appData.address;
+            document.getElementById('footer-school-phone').innerText = appData.phone;
+            document.getElementById('footer-school-email').innerText = appData.email;
+
+            // Sambutan Section
+            document.getElementById('speech-name').innerText = appData.principal.name;
+            document.getElementById('org-principal').innerText = appData.principal.name;
+            document.getElementById('speech-image').src = appData.principal.image;
+            
+            const speechTextContainer = document.getElementById('speech-text');
+            speechTextContainer.innerHTML = appData.principal.speech.split('\n').map(p => `<p class="mb-4">${p}</p>`).join('');
+
+            // Stats Counters
+            document.getElementById('stat-siswa').innerText = appData.stats.siswa;
+            document.getElementById('stat-rombel').innerText = appData.stats.rombel;
+            document.getElementById('stat-guru').innerText = appData.stats.guru;
+            document.getElementById('stat-prestasi').innerText = appData.stats.prestasi;
+
+            // News Feed
+            const newsGrid = document.getElementById('news-grid');
+            newsGrid.innerHTML = '';
+            appData.news.forEach(item => {
+                newsGrid.innerHTML += `
+                    <article class="bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-xs hover:shadow-xl transition-all flex flex-col">
+                        <div class="relative aspect-video">
+                            <img class="w-full h-full object-cover" src="${item.image}" alt="${item.title}" onerror="this.src='https://placehold.co/600x400/0c2340/ffffff?text=Sekolah'">
+                            <span class="absolute top-4 left-4 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">
+                                ${item.category}
+                            </span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-1.5 text-slate-400 text-[11px] font-semibold mb-3">
+                                    <i class="fa-regular fa-calendar"></i> ${item.date}
+                                </div>
+                                <h4 class="font-bold text-slate-900 text-base leading-snug hover:text-blue-600 transition-colors line-clamp-2">
+                                    <a href="#">${item.title}</a>
+                                </h4>
+                                <p class="text-slate-500 text-xs mt-3 leading-relaxed line-clamp-3">
+                                    ${item.summary}
+                                </p>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-slate-50 flex justify-end">
+                                <a href="#" class="text-xs font-bold text-blue-600 hover:text-blue-800 flex items-center gap-1">
+                                    Baca Selengkapnya <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            });
+
+            // News Update Column in Footer matching image_290c3d.png
+            const footerNews = document.getElementById('footer-news');
+            footerNews.innerHTML = '';
+            appData.news.slice(0, 2).forEach(item => {
+                footerNews.innerHTML += `
+                    <div class="flex items-center space-x-3.5">
+                        <img class="w-12 h-12 object-cover rounded-lg flex-shrink-0 bg-slate-800" src="${item.image}" alt="${item.title}" onerror="this.src='https://placehold.co/100x100/1e293b/ffffff?text=Berita'">
+                        <div>
+                            <h6 class="text-xs font-bold text-slate-200 line-clamp-2 hover:text-amber-400 transition-colors">
+                                <a href="#">${item.title}</a>
+                            </h6>
+                            <span class="text-[10px] text-slate-500 flex items-center gap-1 mt-1">
+                                <i class="fa-regular fa-calendar"></i> ${item.date}
+                            </span>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Quotes
+            renderQuotes();
+
+            // Gallery
+            const galleryGrid = document.getElementById('gallery-grid');
+            galleryGrid.innerHTML = '';
+            appData.gallery.forEach(item => {
+                galleryGrid.innerHTML += `
+                    <div class="bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-xs hover:shadow-xl transition-all group cursor-pointer" onclick="openLightbox('${item.image}', '${item.title}')">
+                        <div class="relative overflow-hidden aspect-4/3">
+                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="${item.image}" alt="${item.title}" onerror="this.src='https://placehold.co/600x450/0c2340/ffffff?text=Galeri'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                                <div>
+                                    <span class="text-[9px] font-bold tracking-widest text-amber-400 uppercase block mb-1">${item.type}</span>
+                                    <h5 class="text-white text-sm font-bold line-clamp-1">${item.title}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // Scroll to News Section smooth helper
+        function scrollToNews() {
+            document.getElementById('berita').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Simple Simulated Lightbox for Gallery Photos
+        function openLightbox(imageUrl, title) {
+            const lightbox = document.createElement('div');
+            lightbox.id = 'active-lightbox';
+            lightbox.className = 'fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex flex-col items-center justify-center p-4';
+            lightbox.onclick = closeLightbox;
+            lightbox.innerHTML = `
+                <div class="relative max-w-4xl max-h-[80vh] overflow-hidden rounded-2xl shadow-2xl border border-white/10" onclick="event.stopPropagation()">
+                    <button onclick="closeLightbox()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/60 text-white hover:bg-black/90 transition-all flex items-center justify-center text-lg z-50"><i class="fa-solid fa-xmark"></i></button>
+                    <img class="max-w-full max-h-[85vh] object-contain rounded-xl" src="${imageUrl}" alt="${title}">
+                </div>
+                <div class="mt-4 text-center text-white" onclick="event.stopPropagation()">
+                    <h5 class="font-extrabold text-lg">${title}</h5>
+                    <p class="text-xs text-slate-400 mt-1">Dokumentasi Resmi SD NEGERI SEKARDOJA</p>
+                </div>
+            `;
+            document.body.appendChild(lightbox);
+        }
+
+        function closeLightbox() {
+            const lb = document.getElementById('active-lightbox');
+            if (lb) lb.remove();
+        }
+
+        function showAllPhotos() {
+            showToast("Menampilkan seluruh direktori galeri foto...");
+            document.getElementById('galeri').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+
+    <script>
+        // Visi Misi Modal toggle
+        function showVisiMisiModal() {
+            document.getElementById('modal-visi').innerText = appData.visi;
+            const misiList = document.getElementById('modal-misi');
+            misiList.innerHTML = appData.misi.map(m => `<li>${m}</li>`).join('');
+            
+            const modal = document.getElementById('visi-misi-modal');
+            modal.classList.remove('hidden');
+            setTimeout(() => modal.firstElementChild.classList.remove('scale-95'), 10);
+        }
+
+        function closeVisiMisiModal() {
+            const modal = document.getElementById('visi-misi-modal');
+            modal.firstElementChild.classList.add('scale-95');
+            setTimeout(() => modal.classList.add('hidden'), 150);
+        }
+
+        // Struktur Modal toggle
+        function showStructureModal() {
+            const modal = document.getElementById('structure-modal');
+            modal.classList.remove('hidden');
+        }
+        function closeStructureModal() {
+            document.getElementById('structure-modal').classList.add('hidden');
+        }
+
+        // Sarana Prasarana Modal toggle
+        function showFacilitiesModal() {
+            const modal = document.getElementById('facilities-modal');
+            modal.classList.remove('hidden');
+        }
+        function closeFacilitiesModal() {
+            document.getElementById('facilities-modal').classList.add('hidden');
+        }
+
+        // Watch Video tour trigger
+        function openVideoPlayer() {
+            document.getElementById('video-modal').classList.remove('hidden');
+        }
+        function closeVideoPlayer() {
+            document.getElementById('video-modal').classList.add('hidden');
+        }
+    </script>
+
+    <script>
+        let activeAdminTab = 'general';
+
+        // Admin Security Actions
+        function openAdminModal() {
+            if (!isAdminLoggedIn) {
+                // Clear any previous error and show login modal
+                document.getElementById('login-error-msg').classList.add('hidden');
+                document.getElementById('login-username').value = '';
+                document.getElementById('login-password').value = '';
+                document.getElementById('admin-login-modal').classList.remove('hidden');
+                return;
+            }
+
+            // Populate Input fields before showing Modal
+            document.getElementById('input-school-name').value = appData.name;
+            document.getElementById('input-school-address').value = appData.address;
+            document.getElementById('input-school-phone').value = appData.phone;
+            document.getElementById('input-school-email').value = appData.email;
+            
+            document.getElementById('input-principal-name').value = appData.principal.name;
+            document.getElementById('input-principal-image').value = appData.principal.image;
+            document.getElementById('input-principal-speech').value = appData.principal.speech;
+            
+            document.getElementById('input-school-visi').value = appData.visi;
+
+            // Stats
+            document.getElementById('input-stat-siswa').value = appData.stats.siswa;
+            document.getElementById('input-stat-rombel').value = appData.stats.rombel;
+            document.getElementById('input-stat-guru').value = appData.stats.guru;
+            document.getElementById('input-stat-prestasi').value = appData.stats.prestasi;
+
+            // Render sub lists
+            renderAdminNewsList();
+            renderAdminGalleryList();
+            renderAdminQuotesList();
+
+            // Open Modal
+            document.getElementById('admin-modal').classList.remove('hidden');
+        }
+
+        function closeAdminModal() {
+            document.getElementById('admin-modal').classList.add('hidden');
+        }
+
+        function closeLoginModal() {
+            document.getElementById('admin-login-modal').classList.add('hidden');
+        }
+
+        function togglePasswordVisibility() {
+            const pwdInput = document.getElementById('login-password');
+            const icon = document.getElementById('password-toggle-icon');
+            if (pwdInput.type === 'password') {
+                pwdInput.type = 'text';
+                icon.className = 'fa-solid fa-eye-slash text-xs';
+            } else {
+                pwdInput.type = 'password';
+                icon.className = 'fa-solid fa-eye text-xs';
+            }
+        }
+
+        function handleAdminLogin() {
+            const u = document.getElementById('login-username').value;
+            const p = document.getElementById('login-password').value;
+            const errorMsg = document.getElementById('login-error-msg');
+
+            // Hardcoded Credentials (Dapat disesuaikan)
+            if (u === 'admin' && p === 'sekardoja123') {
+                isAdminLoggedIn = true;
+                sessionStorage.setItem('isAdminLoggedIn', 'true');
+                errorMsg.classList.add('hidden');
+                closeLoginModal();
+                openAdminModal();
+                showToast("Akses Diterima! Selamat datang Admin.");
+            } else {
+                errorMsg.classList.remove('hidden');
+            }
+        }
+
+        function handleAdminLogout() {
+            isAdminLoggedIn = false;
+            sessionStorage.removeItem('isAdminLoggedIn');
+            closeAdminModal();
+            showToast("Berhasil keluar dari sesi Admin.");
+        }
+
+        function switchAdminTab(tabName) {
+            // Deactivate all
+            document.querySelectorAll('.admin-tab-btn').forEach(btn => {
+                btn.className = "admin-tab-btn flex items-center space-x-3 w-full text-left px-3.5 py-3 rounded-xl text-xs font-bold transition-all text-slate-500 hover:bg-slate-100 whitespace-nowrap md:whitespace-normal";
+            });
+            document.querySelectorAll('.admin-panel-content').forEach(panel => {
+                panel.classList.add('hidden');
+            });
+
+            // Activate current
+            const activeBtn = document.getElementById(`tab-${tabName}`);
+            if (activeBtn) {
+                activeBtn.className = "admin-tab-btn flex items-center space-x-3 w-full text-left px-3.5 py-3 rounded-xl text-xs font-bold transition-all text-blue-600 bg-blue-50/70 whitespace-nowrap md:whitespace-normal";
+            }
+            document.getElementById(`admin-panel-${tabName}`).classList.remove('hidden');
+            activeAdminTab = tabName;
+        }
+
+        // Render current news inside the Admin panel for management
+        function renderAdminNewsList() {
+            const list = document.getElementById('admin-news-list');
+            list.innerHTML = '';
+            appData.news.forEach((post, index) => {
+                list.innerHTML += `
+                    <div class="p-4 border border-slate-100 rounded-2xl flex items-center justify-between gap-4 bg-slate-50/50">
+                        <div class="flex items-center space-x-3 overflow-hidden">
+                            <img class="w-10 h-10 object-cover rounded-lg bg-slate-200 flex-shrink-0" src="${post.image}" onerror="this.src='https://placehold.co/100x100/1e293b/ffffff?text=Berita'">
+                            <div class="overflow-hidden">
+                                <h6 class="text-xs font-bold text-slate-800 truncate">${post.title}</h6>
+                                <span class="text-[9px] font-bold text-slate-400 block">${post.category} | ${post.date}</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-1">
+                            <button onclick="editPostInline(${index})" class="w-8 h-8 rounded-lg text-blue-600 hover:bg-blue-100 transition-colors flex items-center justify-center text-xs"><i class="fa-solid fa-pen"></i></button>
+                            <button onclick="deletePost(${index})" class="w-8 h-8 rounded-lg text-rose-600 hover:bg-rose-100 transition-colors flex items-center justify-center text-xs"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // Render gallery items in admin
+        function renderAdminGalleryList() {
+            const list = document.getElementById('admin-gallery-list');
+            list.innerHTML = '';
+            appData.gallery.forEach((item, index) => {
+                list.innerHTML += `
+                    <div class="border border-slate-100 rounded-xl p-3 bg-slate-50/50 space-y-2">
+                        <img class="w-full h-24 object-cover rounded-lg bg-slate-200" src="${item.image}">
+                        <div class="flex justify-between items-center gap-1">
+                            <span class="text-[10px] font-bold text-slate-800 truncate block flex-1">${item.title}</span>
+                            <button onclick="deleteGalleryItem(${index})" class="text-rose-600 hover:text-rose-800 text-xs"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // Render quotes items in admin
+        function renderAdminQuotesList() {
+            const list = document.getElementById('admin-quotes-list');
+            list.innerHTML = '';
+            appData.quotes.forEach((q, index) => {
+                list.innerHTML += `
+                    <div class="p-3.5 border border-slate-100 bg-slate-50/50 rounded-xl space-y-2">
+                        <textarea onchange="updateQuoteText(${index}, this.value)" class="w-full text-xs p-2 border border-slate-200 rounded-lg outline-hidden" rows="2">${q.text}</textarea>
+                        <div class="flex justify-between items-center">
+                            <input type="text" value="${q.author}" onchange="updateQuoteAuthor(${index}, this.value)" class="text-[10px] font-bold text-slate-600 bg-transparent border-b border-slate-200 px-1 py-0.5 outline-hidden">
+                            <button onclick="deleteQuote(${index})" class="text-rose-600 hover:text-rose-800 text-xs"><i class="fa-solid fa-trash"></i> Hapus</button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // News interactions
+        function deletePost(index) {
+            appData.news.splice(index, 1);
+            renderAdminNewsList();
+            showToast("Postingan berhasil dihapus!");
+        }
+
+        function editPostInline(index) {
+            const post = appData.news[index];
+            const newTitle = prompt("Masukkan judul berita baru:", post.title);
+            if (newTitle !== null) {
+                post.title = newTitle;
+                renderAdminNewsList();
+                showToast("Judul berita diperbarui!");
+            }
+        }
+
+        function createNewPost() {
+            const title = prompt("Masukkan Judul Berita:");
+            if (!title) return;
+            const category = prompt("Masukkan Kategori (Tips / Opini / Kegiatan):", "Kegiatan");
+            const image = prompt("Masukkan URL Gambar Unsplash/Ilustrasi:", "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=600");
+            
+            const newPost = {
+                id: Date.now(),
+                title: title,
+                category: category || "Umum",
+                date: "Hari Ini",
+                summary: "Deskripsi singkat berita baru yang dibuat secara dinamis oleh administrator SDN Sekardoja.",
+                image: image || "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=600"
+            };
+
+            appData.news.unshift(newPost);
+            renderAdminNewsList();
+            showToast("Berita baru berhasil ditambahkan!");
+        }
+
+        // Gallery Actions
+        function deleteGalleryItem(index) {
+            appData.gallery.splice(index, 1);
+            renderAdminGalleryList();
+            showToast("Foto galeri dihapus!");
+        }
+
+        function addNewGalleryItem() {
+            const title = prompt("Masukkan Judul Foto:");
+            if (!title) return;
+            const image = prompt("Masukkan URL Gambar:");
+            if (!image) return;
+
+            appData.gallery.unshift({
+                id: Date.now(),
+                title: title,
+                image: image,
+                type: "FOTO"
+            });
+            renderAdminGalleryList();
+            showToast("Foto galeri ditambahkan!");
+        }
+
+        // Quotes Actions
+        function updateQuoteText(index, val) {
+            appData.quotes[index].text = val;
+        }
+
+        function updateQuoteAuthor(index, val) {
+            appData.quotes[index].author = val;
+        }
+
+        function deleteQuote(index) {
+            appData.quotes.splice(index, 1);
+            renderAdminQuotesList();
+            showToast("Quote motivasi dihapus!");
+        }
+
+        // Restore Defaults Helper
+        function restoreDefaults() {
+            if (confirm("Apakah Anda yakin ingin mengembalikan seluruh data ke setelan default SDN Sekardoja?")) {
+                appData = JSON.parse(JSON.stringify(DEFAULT_SCHOOL_DATA));
+                saveState();
+                openAdminModal(); // Refresh forms
+                showToast("Setelan default berhasil dipulihkan!");
+            }
+        }
+
+        // Toast Feedback Alert
+        function showToast(text) {
+            const toast = document.getElementById('feedback-toast');
+            document.getElementById('feedback-text').innerText = text;
+            toast.classList.remove('translate-y-24');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24');
+            }, 3000);
+        }
+
+        // SAVE FORM STATE
+        function saveAdminData() {
+            // Profil Utama
+            appData.name = document.getElementById('input-school-name').value;
+            appData.address = document.getElementById('input-school-address').value;
+            appData.phone = document.getElementById('input-school-phone').value;
+            appData.email = document.getElementById('input-school-email').value;
+            
+            // Kepala Sekolah
+            appData.principal.name = document.getElementById('input-principal-name').value;
+            appData.principal.image = document.getElementById('input-principal-image').value;
+            appData.principal.speech = document.getElementById('input-principal-speech').value;
+            
+            // Visi
+            appData.visi = document.getElementById('input-school-visi').value;
+
+            // Stats
+            appData.stats.siswa = parseInt(document.getElementById('input-stat-siswa').value) || 0;
+            appData.stats.rombel = parseInt(document.getElementById('input-stat-rombel').value) || 0;
+            appData.stats.guru = parseInt(document.getElementById('input-stat-guru').value) || 0;
+            appData.stats.prestasi = parseInt(document.getElementById('input-stat-prestasi').value) || 0;
+
+            // Save and render back to client view
+            saveState();
+            closeAdminModal();
+            showToast("Semua perubahan berhasil diterapkan pada website!");
+        }
+
+        // Initialize App on Window Load
+        window.onload = function() {
+            renderAllSections();
+        };
+    </script>
+</body>
+</html>
